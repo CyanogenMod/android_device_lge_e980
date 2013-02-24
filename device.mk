@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL mako devices, and
-# are also specific to mako devices
+# This file includes all definitions that apply to ALL geehrc devices, and
+# are also specific to geehrc devices
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/mako/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -29,7 +29,7 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_PACKAGES := \
-	lights.mako
+	lights.geehrc
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -43,42 +43,43 @@ PRODUCT_PACKAGES += \
         librs_jni
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-	device/lge/mako/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-	device/lge/mako/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
+	$(LOCAL_PATH)/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+	$(LOCAL_PATH)/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+	$(LOCAL_PATH)/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/lge/mako/audio_policy.conf:system/etc/audio_policy.conf
+	$(LOCAL_PATH)/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	$(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/thermald-mako.conf:system/etc/thermald.conf
+	$(LOCAL_PATH)/thermald-geehrc.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/init.mako.rc:root/init.mako.rc \
-	device/lge/mako/init.mako.usb.rc:root/init.mako.usb.rc \
-	device/lge/mako/fstab.mako:root/fstab.mako \
-	device/lge/mako/ueventd.mako.rc:root/ueventd.mako.rc \
-	device/lge/mako/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/mako/media_codecs.xml:system/etc/media_codecs.xml
+	$(LOCAL_PATH)/init.geehrc.rc:root/init.geehrc.rc \
+	$(LOCAL_PATH)/init.geehrc.usb.rc:root/init.geehrc.usb.rc \
+	$(LOCAL_PATH)/fstab.geehrc:root/fstab.geehrc \
+	$(LOCAL_PATH)/ueventd.geehrc.rc:root/ueventd.geehrc.rc \
+	$(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/media_codecs.xml:system/etc/media_codecs.xml
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/kickstart_checker.sh:system/etc/kickstart_checker.sh
+	$(LOCAL_PATH)/kickstart_checker.sh:system/etc/kickstart_checker.sh
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/lge/mako/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
-	device/lge/mako/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
-	device/lge/mako/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
-	device/lge/mako/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/mako/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
-	device/lge/mako/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
-	device/lge/mako/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
-	device/lge/mako/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+	$(LOCAL_PATH)/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	$(LOCAL_PATH)/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	$(LOCAL_PATH)/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	$(LOCAL_PATH)/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	$(LOCAL_PATH)/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	$(LOCAL_PATH)/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	$(LOCAL_PATH)/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	$(LOCAL_PATH)/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-	device/lge/mako/touch_dev.idc:system/usr/idc/touch_dev.idc
+	$(LOCAL_PATH)/touch_dev.idc:system/usr/idc/touch_dev.idc \
+	$(LOCAL_PATH)/touch_dev.kl:system/usr/keylayout/touch_dev.kl
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -100,30 +101,28 @@ PRODUCT_COPY_FILES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-	device/lge/mako/gps.conf:system/etc/gps.conf
+	$(LOCAL_PATH)/gps.conf:system/etc/gps.conf
 
 # NFC packages
 PRODUCT_PACKAGES += \
-    libnfc-nci \
-    libnfc_nci_jni \
-    nfc_nci.mako \
-    NfcNci \
+    libnfc \
+    libnfc_jni \
+    Nfc \
     Tag \
     com.android.nfc_extras
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/mako/nfc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/lge/mako/nfc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access_debug.xml
 endif
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    device/lge/mako/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072
@@ -147,8 +146,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.telephony.ril_class=LgeLteRIL \
+	ro.telephony.ril.v3=qcomdsds
+
 #Upto 3 layers can go through overlays
-PRODUCT_PROPERTY_OVERRIDES += debug.mdpcomp.maxlayer=3
+PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
@@ -181,24 +184,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
-PRODUCT_PACKAGES += \
-	power.msm8960
+#PRODUCT_PACKAGES += \
+#	power.msm8960
 
 PRODUCT_COPY_FILES += \
-	device/lge/mako/init.mako.bt.sh:system/etc/init.mako.bt.sh
+	$(LOCAL_PATH)/init.geehrc.bt.sh:system/etc/init.geehrc.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
 
 PRODUCT_PACKAGES += \
-	camera.mako \
 	camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
 
 PRODUCT_PACKAGES += \
-	mm-vdec-omx-test \
-	mm-venc-omx-test720p \
+	libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \
 	libOmxVenc \
@@ -214,16 +215,17 @@ PRODUCT_PACKAGES += \
 	gps.msm8960
 
 PRODUCT_PACKAGES += \
-	bdAddrLoader \
 	libwfcu \
-	conn_init \
-	charger_touch
+	conn_init
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	rild.libpath=/system/lib/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	telephony.lteOnCdmaDevice=0
+	telephony.lteOnCdmaDevice=0 \
+	ro.telephony.default_network=9 \
+	telephony.lteOnGsmDevice=1
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
@@ -247,6 +249,9 @@ PRODUCT_PACKAGES += send_bug
 PRODUCT_COPY_FILES += \
 	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
 	system/extras/bugmailer/send_bug:system/bin/send_bug
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/fetch-swv:system/bin/fetch-swv
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 

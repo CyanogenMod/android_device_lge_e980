@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_mako.mk
+    $(LOCAL_DIR)/e975.mk

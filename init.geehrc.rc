@@ -14,10 +14,11 @@
 # limitations under the License.
 #
 
-import init.mako.usb.rc
+import init.geehrc.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
+    write /sys/class/leds/lcd-backlight/brightness 150
 
 on init
     # See storage config details at http://source.android.com/tech/storage/
@@ -39,8 +40,11 @@ on init
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
 
+    mkdir /sns 0775 system system
+    mkdir /sns/cal 0771 system system
+
 on fs
-    mount_all ./fstab.mako
+    mount_all ./fstab.geehrc
     setprop ro.crypto.fuse_sdcard true
 
 on early-boot
@@ -124,6 +128,10 @@ on boot
 # Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  1220608
     write /proc/sys/net/core/wmem_max  1220608
+
+# lights perms
+    chown system system /sys/class/leds/led:red/brightness
+    chown system system /sys/class/leds/led:green/brightness
 
 # msm specific files that need to be created on /data
 on post-fs-data
@@ -260,7 +268,12 @@ service rmt_storage /system/bin/rmt_storage
     class main
     user root
 
-service hciattach /system/bin/sh /system/etc/init.mako.bt.sh
+service config_bluetooth /system/bin/sh /system/etc/init.geehrc.bt.sh "onboot"
+    class core
+    user root
+    oneshot
+
+service hciattach /system/bin/sh /system/etc/init.geehrc.bt.sh
     class late_start
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system
@@ -384,12 +397,6 @@ service conn_init /system/bin/logwrapper /system/bin/conn_init
     group system wifi
     oneshot
 
-service bdAddrLoader /system/bin/bdAddrLoader -f /persist/bluetooth/.bdaddr -h -x
-    class main
-    user bluetooth
-    group system bluetooth
-    oneshot
-
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/bugmailer.sh -v
     class main
@@ -406,5 +413,16 @@ service diag_mdlog /system/bin/logwrapper /system/bin/diag_mdlog -s 100
     class late_start
     disabled
 
+service fetch-swv /system/bin/fetch-swv
+    class late_start
+    oneshot
+
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
+
+# LGE_CHANGE_S, 20120914, chaeuk.lee@lge.com
+# inform boot_completed of hdmi driver
+on property:dev.bootcomplete=1
+    write /sys/devices/virtual/graphics/fb1/hdmi_boot_completed 1
+# LGE_CHANGE_E, 20120914, chaeuk.lee@lge.com
+
