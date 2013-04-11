@@ -1,7 +1,6 @@
 [
  {
    "repository": "lge-kernel-gproj",
-   "target_path": "kernel/lge/gproj",
-   "branch": "cm-10.1"
+   "target_path": "kernel/lge/gproj"
  }
 ]
