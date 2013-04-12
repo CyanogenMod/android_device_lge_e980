@@ -221,6 +221,11 @@ on post-fs-data
     write /sys/module/pm_8x60/modes/cpu2/power_collapse/suspend_enabled 1
     write /sys/module/pm_8x60/modes/cpu3/power_collapse/suspend_enabled 1
     write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
+    # yongmin.jung@lge.com 2012.07.25 change fix L1 Cache Error problem
+    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled 0
+    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled 0
+    write /sys/module/pm_8x60/modes/cpu2/standalone_power_collapse/suspend_enabled 0
+    write /sys/module/pm_8x60/modes/cpu3/standalone_power_collapse/suspend_enabled 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
