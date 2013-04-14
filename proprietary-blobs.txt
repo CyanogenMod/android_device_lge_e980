@@ -117,6 +117,7 @@ bin/qmiproxy
 bin/rild
 bin/mm-qcamera-daemon
 bin/mpdecision
+bin/qosmgr
 vendor/firmware/libpn544_fw.so
 etc/firmware/a225p5_pm4.fw
 etc/firmware/a225_pfp.fw

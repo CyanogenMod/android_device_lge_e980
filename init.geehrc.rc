@@ -391,6 +391,10 @@ service thermald /system/bin/thermald
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     class main
 
+service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
+   user system
+   group system
+
 service conn_init /system/bin/logwrapper /system/bin/conn_init
     class late_start
     user system
