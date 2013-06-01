@@ -630,19 +630,6 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
         }
     }
 
-    /**
-     * Notify all registrants that the ril has connected or disconnected.
-     *
-     * @param rilVer is the version of the ril or -1 if disconnected.
-     */
-    private void notifyRegistrantsRilConnectionChanged(int rilVer) {
-        mRilVersion = rilVer;
-        if (mRilConnectedRegistrants != null) {
-            mRilConnectedRegistrants.notifyRegistrants(
-                                new AsyncResult (null, new Integer(rilVer), null));
-        }
-    }
-
     private void setRadioStateFromRILInt (int stateCode) {
         CommandsInterface.RadioState radioState;
         HandlerThread handlerThread;
