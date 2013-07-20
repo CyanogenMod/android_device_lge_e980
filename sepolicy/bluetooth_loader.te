@@ -18,8 +18,10 @@ domain_auto_trans(bluetooth_loader, hci_attach_exec, hci_attach)
 # hci_qcomm_init started with logwrapper
 allow hci_attach devpts:chr_file rw_file_perms;
 allow hci_attach bluetooth_loader:fd use;
+allow hci_attach bluetooth_loader:fifo_file rw_file_perms;
 
-# Read mac address from persist partition
+# Read mac address from misc partition
+allow hci_attach persist_block_device:blk_file { open read getattr };
 allow bluetooth_loader persist_file:dir search;
 r_dir_file(bluetooth_loader, persist_bluetooth_file)
 

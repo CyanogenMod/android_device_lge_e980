@@ -45,6 +45,10 @@ on init
 
 on fs
     mount_all ./fstab.geehrc
+    restorecon /persist/.bt_nv.bin
+    restorecon /sns/cal/sns.reg
+    restorecon /sns/cal
+    restorecon /sns
     setprop ro.crypto.fuse_sdcard true
 
 on early-boot
@@ -282,6 +286,7 @@ service rmt_storage /system/bin/rmt_storage
 service config_bluetooth /system/bin/sh /system/etc/init.geehrc.bt.sh "onboot"
     class core
     user root
+    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 service hciattach /system/bin/sh /system/etc/init.geehrc.bt.sh

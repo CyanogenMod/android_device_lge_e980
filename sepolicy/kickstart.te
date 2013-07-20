@@ -39,3 +39,7 @@ allow kickstart radio_prop:property_service set;
 allow kickstart shell_exec:file entrypoint;
 # ls on /data/qcks/
 allow kickstart self:capability dac_override;
+
+# set wake locks
+allow kickstart sysfs:file { append };
+

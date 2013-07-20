@@ -26,3 +26,5 @@ allow netmgrd system_file:file { execute_no_trans };
 unix_socket_connect(netmgrd, property, init)
 # Set net.rmnet_usb0. values
 allow netmgrd radio_prop:property_service set;
+
+allow netmgrd kernel:system module_request;
