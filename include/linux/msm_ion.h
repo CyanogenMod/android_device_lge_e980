@@ -1,7 +1,7 @@
 /*
  * include/linux/ion.h
  *
- * Copyright (c) 2012, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012, Code Aurora Forum. All rights reserved.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -40,10 +40,9 @@ enum ion_heap_ids {
 	ION_CP_MFC_HEAP_ID = 12,
 	ION_CP_WB_HEAP_ID = 16, /* 8660 only */
 	ION_CAMERA_HEAP_ID = 20, /* 8660 only */
-	ION_PIL1_HEAP_ID = 23, /* Currently used for other PIL images */
+	ION_ADSP_HEAP_ID = 22,
 	ION_SF_HEAP_ID = 24,
 	ION_IOMMU_HEAP_ID = 25,
-	ION_PIL2_HEAP_ID = 26, /* Currently used for modem firmware images */
 	ION_QSECOM_HEAP_ID = 27,
 	ION_AUDIO_HEAP_ID = 28,
 
@@ -80,6 +79,7 @@ enum cp_mem_usage {
  */
 #define ION_HEAP(bit) (1 << (bit))
 
+#define ION_ADSP_HEAP_NAME	"adsp"
 #define ION_VMALLOC_HEAP_NAME	"vmalloc"
 #define ION_AUDIO_HEAP_NAME	"audio"
 #define ION_SF_HEAP_NAME	"sf"
@@ -89,8 +89,6 @@ enum cp_mem_usage {
 #define ION_MFC_HEAP_NAME	"mfc"
 #define ION_WB_HEAP_NAME	"wb"
 #define ION_MM_FIRMWARE_HEAP_NAME	"mm_fw"
-#define ION_PIL1_HEAP_NAME  "pil_1"
-#define ION_PIL2_HEAP_NAME  "pil_2"
 #define ION_QSECOM_HEAP_NAME	"qsecom"
 #define ION_FMEM_HEAP_NAME	"fmem"
 
@@ -147,6 +145,7 @@ struct ion_cp_heap_pdata {
 	size_t secure_size; /* Size used for securing heap when heap is shared*/
 	int reusable;
 	int mem_is_fmem;
+	int is_cma;
 	enum ion_fixed_position fixed_position;
 	int iommu_map_all;
 	int iommu_2x_map_domain;

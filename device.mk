@@ -136,6 +136,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # FIXME: Remove persist.audio.handset.mic and persist.audio.fluence.mode
 #        while switching new audio HAL from legacy HAL
 PRODUCT_PROPERTY_OVERRIDES += \
+	lpa.decode=true \
 	persist.audio.handset.mic.type=digital \
 	persist.audio.dualmic.config=endfire \
 	persist.audio.fluence.voicecall=true \
