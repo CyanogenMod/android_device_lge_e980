@@ -52,6 +52,9 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/mixer_paths.xml:system/etc/mixer_paths.xml
+
+PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/thermald-geehrc.conf:system/etc/thermald.conf \
 	$(LOCAL_PATH)/qosmgr_rules.xml:system/etc/qosmgr_rules.xml
 
@@ -136,7 +139,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # FIXME: Remove persist.audio.handset.mic and persist.audio.fluence.mode
 #        while switching new audio HAL from legacy HAL
 PRODUCT_PROPERTY_OVERRIDES += \
-	lpa.decode=true \
 	persist.audio.handset.mic.type=digital \
 	persist.audio.dualmic.config=endfire \
 	persist.audio.fluence.voicecall=true \
