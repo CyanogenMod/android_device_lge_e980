@@ -192,8 +192,8 @@ PRODUCT_PACKAGES += \
 
 # Voice processing
 PRODUCT_PACKAGES += libqcomvoiceprocessing
-#PRODUCT_COPY_FILES += \
-#    device/lge/mako/audio_effects.conf:system/vendor/etc/audio_effects.conf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
