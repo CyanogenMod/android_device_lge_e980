@@ -162,7 +162,14 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
         IccCardApplicationStatus ca;
 
         IccCardStatus status = new IccCardStatus();
-        status.setCardState(p.readInt());
+        int cardState = p.readInt();
+        /* Standard stack doesn't recognize REMOVED and SIM_DETECT_INSERTED,
+         * so convert them to ABSENT and PRESENT to trigger the hot-swapping 
+         * check */
+        if (cardState > 2) {
+            cardState -= 3;
+        }
+        status.setCardState(cardState);
         status.setUniversalPinState(p.readInt());
         status.mGsmUmtsSubscriptionAppIndex = p.readInt();
         status.mCdmaSubscriptionAppIndex = p.readInt();
