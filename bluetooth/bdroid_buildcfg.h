@@ -17,7 +17,10 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "LG Optimus G"
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
+#define BTM_DEF_LOCAL_NAME   "LG Optimus G Pro"
+#define BTA_DISABLE_DELAY 1500 /* in milliseconds */
+/* First attempt appears to always fail, so lower the timer and try again */
+#define PRELOAD_START_TIMEOUT_MS 2000
+#define PRELOAD_MAX_RETRY_ATTEMPTS 3
 
 #endif

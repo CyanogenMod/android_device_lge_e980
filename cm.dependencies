@@ -1,5 +1,9 @@
 [
  {
+   "repository": "android_device_lge_gproj-common",
+   "target_path": "device/lge/gproj-common"
+ },
+ {
    "repository": "lge-kernel-gproj",
    "target_path": "kernel/lge/gproj"
  }

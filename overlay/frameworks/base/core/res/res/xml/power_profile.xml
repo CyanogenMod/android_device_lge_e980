@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
     <item name="none">0</item>
-    <item name="screen.on">113.9</item>
-    <item name="bluetooth.active">33.5</item>
-    <item name="bluetooth.on">1.1</item>
-    <item name="screen.full">151.4</item>
-    <item name="wifi.on">0.6</item>
-    <item name="wifi.active">250.7</item>
-    <item name="wifi.scan">27.2</item>
+    <item name="screen.on">162.8</item>
+    <item name="bluetooth.active">37.7</item>
+    <item name="bluetooth.on">2.1</item>
+    <item name="screen.full">257.2</item>
+    <item name="wifi.on">5.4</item>
+    <item name="wifi.active">232.9</item>
+    <item name="wifi.scan">32.7</item>
     <item name="dsp.audio">0.1</item>
     <item name="dsp.video">0.1</item>
-    <item name="radio.active">308.0</item>
-    <item name="radio.scanning">21.5</item>
-    <item name="gps.on">73.6</item>
+    <item name="radio.active">216.5</item>
+    <item name="radio.scanning">15.2</item>
+    <item name="gps.on">75.6</item>
     <array name="radio.on">
         <value>0.84</value>
         <value>2.1</value>
@@ -29,23 +29,27 @@
         <value>1242000</value>
         <value>1350000</value>
         <value>1458000</value>
-        <value>1512000</value>
+        <value>1566000</value>
+        <value>1674000</value>
+        <value>1728000</value>
     </array>
-    <item name="cpu.idle">3.6</item>
-    <item name="cpu.awake">23.9</item>
+    <item name="cpu.idle">3.8</item>
+    <item name="cpu.awake">17.2</item>
     <array name="cpu.active">
-        <value>71.2</value>
+        <value>72.2</value>
         <value>91.8</value>
-        <value>98.4</value>
-        <value>106.9</value>
-        <value>119.5</value>
+        <value>98.7</value>
+        <value>105.1</value>
+        <value>113.5</value>
+        <value>121.2</value>
         <value>131.2</value>
-        <value>140.5</value>
-        <value>180.9</value>
-        <value>195.6</value>
-        <value>208.4</value>
-        <value>216.2</value>
-        <value>220.8</value>
+        <value>174.3</value>
+        <value>182.1</value>
+        <value>192.6</value>
+        <value>208.1</value>
+        <value>222.1</value>
+        <value>238.8</value>
+        <value>268.7</value>
     </array>
-    <item name="battery.capacity">2100</item>
+    <item name="battery.capacity">3140</item>
 </device>
