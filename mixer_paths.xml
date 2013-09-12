@@ -295,6 +295,7 @@
 
     <path name="voice-headphones">
         <path name="headphones" />
+        <ctl name="SLIM TX3 MUX" value="RMIX1" />
         <ctl name="HPHL Volume" value="8" />
         <ctl name="HPHR Volume" value="8" />
     </path>
@@ -343,6 +344,9 @@
 
     <!-- Dual MIC devices -->
     <path name="dmic-endfire">
+        <ctl name="ES325 RX1 Enable" value="1" />
+        <ctl name="ES325 TX1 Enable" value="1" />
+        <ctl name="ES325 INTERNAL ROUTE CONFIG" value="TWO MIC CT" />
         <ctl name="SLIM TX7 MUX" value="DEC7" />
         <ctl name="DEC7 MUX" value="ADC1" />
         <ctl name="SLIM TX8 MUX" value="DEC9" />
@@ -350,6 +354,9 @@
         <ctl name="SLIM_0_TX Channels" value="Two" />
         <ctl name="DEC7 Volume" value="55" />
         <ctl name="DEC9 Volume" value="63" />
+        <ctl name="MICBIAS1 CAPLESS Switch" value="0" />
+        <ctl name="MICBIAS3 CAPLESS Switch" value="0" />
+        <ctl name="IIR1 INP1 MUX" value="DEC7" />
     </path>
 
     <path name="dmic-broadside">
