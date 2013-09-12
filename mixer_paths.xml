@@ -227,7 +227,7 @@
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="RX3 MIX1 INP2" value="RX6" />
         <ctl name="RX4 DSM MUX" value="DSM_INV" />
-        <ctl name="RX3 Digital Volume" value="63" />
+        <ctl name="RX3 Digital Volume" value="60" />
         <ctl name="SLIM TX3 MUX" value="RMIX3" />
     </path>
 
@@ -286,6 +286,7 @@
 
     <path name="voice-speaker">
         <path name="speaker" />
+        <ctl name="RX3 Digital Volume" value="73" />
     </path>
 
     <path name="voice-speaker-mic">
