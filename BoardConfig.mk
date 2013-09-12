@@ -16,19 +16,19 @@
 
 include device/lge/gproj-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/lge/e986/include
+TARGET_SPECIFIC_HEADER_PATH := device/lge/e980/include
 
 BOARD_KERNEL_CMDLINE := vmalloc=600M console=ttyHSL0,115200,n8 lpj=67677 user_debug=31 msm_rtb.filter=0x0 ehci-hcd.park=3 coresight-etm.boot_enable=0 androidboot.hardware=geefhd
 
-TARGET_KERNEL_CONFIG := cyanogenmod_e986_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_e980_defconfig
 
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUEDROID_VENDOR_CONF := device/lge/e986/bluetooth/vnd_gk.txt
+BOARD_BLUEDROID_VENDOR_CONF := device/lge/e980/bluetooth/vnd_gk.txt
 
 TARGET_BOOTLOADER_BOARD_NAME := geefhd
-TARGET_BOOTLOADER_NAME=e986
+TARGET_BOOTLOADER_NAME=e980
 
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/e986/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/e980/bluetooth
 
 BOARD_WLAN_DEVICE                := bcmdhd
 BOARD_WLAN_DEVICE_REV            := bcm4334
@@ -41,15 +41,15 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 
 BOARD_USE_CUSTOM_RECOVERY_FONT:= \"roboto_23x41.h\"
-TARGET_RECOVERY_FSTAB = device/lge/e986/fstab.geefhd
+TARGET_RECOVERY_FSTAB = device/lge/e980/fstab.geefhd
 ENABLE_LOKI_RECOVERY := true
 
 COMMON_GLOBAL_CFLAGS += -DLG_CAMERA_HARDWARE
 
--include vendor/lge/e986/BoardConfigVendor.mk
+-include vendor/lge/e980/BoardConfigVendor.mk
 
 BOARD_SEPOLICY_DIRS += \
-        device/lge/e986/sepolicy
+        device/lge/e980/sepolicy
 
 BOARD_SEPOLICY_UNION += \
 	file_contexts \
@@ -81,6 +81,6 @@ BOARD_SEPOLICY_UNION += \
 	ueventd.te \
 	wpa_supplicant.te
 
-TARGET_OTA_ASSERT_DEVICE := e986,geefhd
+TARGET_OTA_ASSERT_DEVICE := e986,e980,geefhd,e988,gkatt
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/gproj-common/loki
