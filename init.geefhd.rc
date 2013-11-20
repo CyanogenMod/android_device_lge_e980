@@ -18,11 +18,12 @@ import init.gee-common.rc
 
 on init
     chmod 0701 /mnt/media_rw
-    mkdir /mnt/media_rw/sdcard 0775 system system
-    mkdir /mnt/media_rw/usb 0775 system system
-    mkdir /storage/sdcard1 0000 system system
-    mkdir /storage/usb 0000 system system
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /mnt/media_rw/usbdisk0 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
+    mkdir /storage/usbdisk0 0700 root root
     mkdir /factory 0775 system system
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk0
 
 on fs
     mount_all ./fstab.geefhd
@@ -99,11 +100,11 @@ service ppd /system/bin/mm-pp-daemon
     socket pps stream 0660 system system graphics
     group system graphics
 
-service fuse_sdcard /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sdcard /storage/sdcard1
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
     disabled
 
-service fuse_usb /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usb /storage/usb
+service fuse_usbdisk0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/usbdisk0 /storage/usbdisk0
     class late_start
     disabled
 
