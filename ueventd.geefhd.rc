@@ -54,6 +54,6 @@
 
 /dev/pn544		0600	nfc	nfc
 
-/dev/block/mmcblk0p18     0660   root     system
+/dev/block/mmcblk0p18     0660   system     wifi
 
 /dev/ttyHSL1              0660   system     inet
