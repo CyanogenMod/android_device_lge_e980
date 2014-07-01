@@ -66,8 +66,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # This hw ships locked, work around it with loki
 PRODUCT_PACKAGES += \
 	loki.sh \
-	loki_patch \
-	loki_flash
+	loki_tool_static_gproj \
+	recovery-transform.sh
 
 PRODUCT_COPT_FILES += \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
