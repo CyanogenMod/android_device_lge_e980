@@ -27,9 +27,7 @@ on init
 
 on fs
     mount_all ./fstab.geefhd
-    restorecon /sns/cal/sns.reg
-    restorecon /sns/cal
-    restorecon /sns
+    restorecon_recursive /sns
 
 on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -57,10 +55,10 @@ on post-fs-data
     # Make sure the default firmware is loaded
     write /sys/module/bcmdhd/parameters/firmware_path "/system/etc/firmware/fw_bcmdhd.bin"
 
-service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
+service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0 -O/data/misc/wifi/sockets
+    -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
     #   user wifi
@@ -70,10 +68,9 @@ service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service p2p_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
+service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/wpa_supplicant_overlay.conf \
-    -O/data/misc/wifi/sockets -N \
+    -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf \
     -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
@@ -97,11 +94,13 @@ on property:init.svc.conn_init=stopped
     chmod 644 /data/misc/wifi/config
     chmod 644 /data/misc/bdaddr
 
-service ppd /system/bin/mm-pp-daemon
-    class late_start
-    user system
-    socket pps stream 0660 system system graphics
-    group system graphics
+# This is pointless now
+#service ppd /system/bin/mm-pp-daemon
+#    class late_start
+#    user system
+#    socket pps stream 0660 system system graphics
+#    seclabel u:r:camera:s0
+#    group system graphics
 
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start

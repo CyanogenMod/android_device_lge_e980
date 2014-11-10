@@ -86,9 +86,9 @@
     </string-array>
 
     <!-- Using quickmemo key as ASSIST -->
-    <integer name="config_deviceHardwareKeys">15</integer>
+    <!--integer name="config_deviceHardwareKeys">15</integer-->
 
-    <bool name="config_deviceHasVariableButtonBrightness">true</bool>
+    <!--bool name="config_deviceHasVariableButtonBrightness">true</bool-->
 
     <bool name="config_lidControlsSleep">true</bool>
 </resources>

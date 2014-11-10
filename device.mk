@@ -31,7 +31,8 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 PRODUCT_PACKAGES += \
-	lights.geefhd
+	lights.geefhd \
+	camera.geefhd
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/mixer_paths.xml:system/etc/mixer_paths.xml
