@@ -46,38 +46,6 @@ BOARD_RECOVERY_SWIPE := true
 
 -include vendor/lge/e980/BoardConfigVendor.mk
 
-BOARD_SEPOLICY_DIRS += \
-	device/lge/e980/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-	bluetooth_loader.te \
-	bridge.te \
-	camera.te \
-	conn_init.te \
-	device.te \
-	domain.te \
-	file.te \
-	file_contexts \
-	genfs_contexts \
-	hostapd.te \
-	kickstart.te \
-	mediaserver.te \
-	mpdecision.te \
-	netmgrd.te \
-	property.te \
-	property_contexts \
-	qmux.te \
-	rild.te \
-	rmt.te \
-	sensors.te \
-	surfaceflinger.te \
-	system_server.te \
-	tee.te \
-	te_macros \
-	thermald.te \
-	ueventd.te \
-	wpa.te
-
 TARGET_OTA_ASSERT_DEVICE := e986,e980,geefhd,e988,gkatt
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/gproj-common/loki

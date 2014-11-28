@@ -1,5 +1,0 @@
-# Grant access to Qualcomm MSM Interface (QMI) radio sockets to RILD
-qmux_socket(rild)
-
-allow rild self:process execmem;
-allow rild smd_device:chr_file rw_file_perms;
