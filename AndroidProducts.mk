@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/e980.mk
+    $(LOCAL_DIR)/f240.mk
