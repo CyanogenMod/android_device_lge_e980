@@ -44,6 +44,8 @@ TARGET_RECOVERY_FSTAB = device/lge/e980/fstab.geefhd
 ENABLE_LOKI_RECOVERY := true
 BOARD_RECOVERY_SWIPE := true
 
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2621440000 # 2500M. Actually 2560, but hold some in reserve
+
 -include vendor/lge/e980/BoardConfigVendor.mk
 
 TARGET_OTA_ASSERT_DEVICE := e986,e980,geefhd,e988,gkatt
