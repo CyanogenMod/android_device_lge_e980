@@ -1,0 +1,4 @@
+/sys/devices/virtual/input/lge_touch(/.*)?          u:object_r:touchpanel_sysfs:s0
+/sys/devices/platform/wcnss_wlan.0/thermal_mitigation     u:object_r:sysfs_thermal:s0
+/sys/module/pm8921_charger/parameters/thermal_mitigation  u:object_r:sysfs_thermal:s0
+/sys/devices/i2c-0/0-0038/backlight/lm3530/max_brightness u:object_r:sysfs_thermal:s0
